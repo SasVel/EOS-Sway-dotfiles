@@ -6,6 +6,10 @@
  - git
  - stow
 
+```
+sudo pacman -S git stow
+```
+
 ## Setup
  - Pull the dotfiles
  ```
