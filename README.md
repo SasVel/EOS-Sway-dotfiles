@@ -2,7 +2,7 @@
  My Endeavor OS i3 configuration
 
 ---
-## Needed packages
+## Required packages
  - git
  - stow
 
@@ -20,3 +20,13 @@ sudo pacman -S git stow
  stow --adopt .
  ```
  - Run setup.sh if available.
+
+## Useful commands
+ - Check file tree (requires "tree" package)
+ ```
+ tree -I ".git" -I "Pictures"  -a [directory]
+ ```
+ - Check if files are symlinks
+ ```
+ ls -lah [directory]
+ ```
