@@ -23,18 +23,19 @@
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: Noto Sans Regular 14
+# Find available font names with - fc-list : family
+font pango: 0xProto Nerd Font 14
 
 exec --no-startup-id xrandr --output HDMI-1 --right-of HDMI-0
 # set monitor variables:
-set $fm HDMI-0
-set $sm HDMI-1
+set $fm DisplayPort-1
+set $sm HDMI-A-0
 
 # set the mod key to the winkey:
 set $mod Mod4
 set $mod1 Mod1
 
-set $terminal xfce4-terminal
+set $terminal alacritty
 
 #####################
 # workspace layout: #
@@ -239,14 +240,6 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-#bindsym $mod+g layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -339,7 +332,8 @@ set $ws18 "18"
 assign [class="Xfce4-terminal"] $ws1
 assign [class="obsidian"] $ws3
 assign [class="code"] $ws4
-assign [class="Godot"] $ws5
+assign [class="Godot_Editor"] $ws4
+assign [class="Godot_Engine"] $ws5
 assign [class="GitHub Desktop"] $ws5
 assign [class="VirtualBox Machine"] $ws6
 assign [class="VirtualBox Manager"] $ws6
@@ -353,7 +347,7 @@ for_window [class=Xfce4-terminal] focus
 for_window [class=kitty] focus
 for_window [class="VirtualBox Machine"] focus
 for_window [class="VirtualBox Manager"] focus
-for_window [class="Godot"] focus
+for_window [class="Godot_Engine"] focus
 for_window [class="github desktop"] focus
 for_window [class=(?i)firefox] focus
 for_window [class=Thunderbird] focus
