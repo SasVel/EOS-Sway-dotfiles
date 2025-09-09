@@ -399,7 +399,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id dex --autostart --environment i3
 
 # start terminal
-exec --no-startup-id $terminal -x "$HOME/startup.sh"
+exec --no-startup-id $terminal -e "$HOME/startup.sh"
 
 # start syncing utility
 exec --no-startup-id syncthing
