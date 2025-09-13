@@ -407,6 +407,9 @@ exec --no-startup-id syncthing
 # start screenshot utility
 exec --no-startup-id flameshot
 
+# start blue light filter
+exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
+
 # start welcome app
 #exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3 
 
