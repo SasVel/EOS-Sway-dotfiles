@@ -79,6 +79,10 @@ vim.o.splitbelow = true
 vim.o.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
+-- Tab width
+vim.bo.tabstop = 2
+vim.bo.shiftwidth = 2
+
 -- Preview substitutions live, as you type!
 vim.o.inccommand = "split"
 
@@ -112,10 +116,10 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -160,6 +164,19 @@ end
 ---@type vim.Option
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
+
+-- local port = os.getenv("GDScript_Port") or "6005"
+-- local cmd = vim.lsp.rpc.connect("127.0.0.1", port)
+-- local pipe = "/tmp/godot.pipe" -- I use /tmp/godot.pipe
+
+-- vim.lsp.start({
+-- 	name = "Godot",
+-- 	cmd = cmd,
+-- 	root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
+-- 	on_attach = function(client, bufnr)
+-- 		vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
+-- 	end,
+-- })
 
 -- [[ Configure and install plugins ]]
 --
@@ -598,7 +615,7 @@ require("lazy").setup({
 			--  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
 			--  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
-
+			require("lspconfig").gdscript.setup(capabilities)
 			-- Enable the following language servers
 			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 			--
@@ -773,7 +790,7 @@ require("lazy").setup({
 				-- <c-k>: Toggle signature help
 				--
 				-- See :h blink-cmp-config-keymap for defining your own keymap
-				preset = "default",
+				preset = "super-tab",
 
 				-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
 				--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -819,20 +836,17 @@ require("lazy").setup({
 		-- change the command in the config to whatever the name of that colorscheme is.
 		--
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-		"folke/tokyonight.nvim",
+		"sainnhe/everforest",
+		lazy = false,
 		priority = 1000, -- Make sure to load this before all the other start plugins.
 		config = function()
-			---@diagnostic disable-next-line: missing-fields
-			require("tokyonight").setup({
-				styles = {
-					comments = { italic = false }, -- Disable italics in comments
-				},
-			})
-
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
 			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("tokyonight-storm")
+			-- vim.g.sonokai_enable_italic = true
+			-- vim.g.sonokai_style = "andromeda"
+			-- vim.g.sonokai_cursor = "red"
+			vim.cmd.colorscheme("everforest")
 		end,
 	},
 
@@ -888,6 +902,9 @@ require("lazy").setup({
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 		opts = {
 			ensure_installed = {
+				"gdscript",
+				"godot_resource",
+				"gdshader",
 				"bash",
 				"c",
 				"diff",
@@ -909,7 +926,7 @@ require("lazy").setup({
 				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
 				additional_vim_regex_highlighting = { "ruby" },
 			},
-			indent = { enable = true, disable = { "ruby" } },
+			indent = { enable = true, disable = { "ruby", "gdscript" } },
 		},
 		-- There are additional nvim-treesitter modules that you can use to interact
 		-- with nvim-treesitter. You should go explore a few and see what interests you:
@@ -919,6 +936,7 @@ require("lazy").setup({
 		--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 	},
 
+	{ "habamax/vim-godot", event = "VimEnter" },
 	-- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
 	-- init.lua. If you want these files, they are in the repository, so you can just download them and
 	-- place them in the correct locations.
@@ -978,27 +996,5 @@ vim.cmd([[
   highlight NonText ctermbg=none
 ]])
 vim.cmd("syntax enable")
-
--- paths to check for project.godot file
-local paths_to_check = { "/", "/../" }
-local is_godot_project = false
-local godot_project_path = ""
-local cwd = vim.fn.getcwd()
-
--- iterate over paths and check
-for key, value in pairs(paths_to_check) do
-	if vim.uv.fs_stat(cwd .. value .. "project.godot") then
-		is_godot_project = true
-		godot_project_path = cwd .. value
-		break
-	end
-end
-
--- check if server is already running in godot project path
-local is_server_running = vim.uv.fs_stat(godot_project_path .. "/server.pipe")
--- start server, if not already running
-if is_godot_project and not is_server_running then
-	vim.fn.serverstart(godot_project_path .. "/server.pipe")
-end
 
 print("Drink water!")
