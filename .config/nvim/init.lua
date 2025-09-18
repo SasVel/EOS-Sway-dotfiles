@@ -77,7 +77,7 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
 vim.o.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "| ", trail = "·", nbsp = "␣" }
 
 -- Tab width
 vim.bo.tabstop = 2
@@ -198,7 +198,6 @@ require("lazy").setup({
 	-- keys can be used to configure plugin behavior/loading/etc.
 	--
 	-- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
-	--
 
 	-- Alternatively, use `config = function() ... end` for full control over the configuration.
 	-- If you prefer to call `setup` explicitly, use:
@@ -241,7 +240,88 @@ require("lazy").setup({
 	--
 	-- Then, because we use the `opts` key (recommended), the configuration runs
 	-- after the plugin has been loaded as `require(MODULE).setup(opts)`.
-
+	-- Yazi setup
+	---@type LazySpec
+	{
+		"mikavilpas/yazi.nvim",
+		version = "*", -- use the latest stable version
+		event = "VeryLazy",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim", lazy = true },
+		},
+		keys = {
+			-- 👇 in this section, choose your own keymappings!
+			{
+				"<leader>-",
+				mode = { "n", "v" },
+				"<cmd>Yazi<cr>",
+				desc = "Open yazi at the current file",
+			},
+			{
+				-- Open in the current working directory
+				"<leader>cw",
+				"<cmd>Yazi cwd<cr>",
+				desc = "Open the file manager in nvim's working directory",
+			},
+			{
+				"<c-up>",
+				"<cmd>Yazi toggle<cr>",
+				desc = "Resume the last yazi session",
+			},
+		},
+		---@type YaziConfig | {}
+		opts = {
+			-- if you want to open yazi instead of netrw, see below for more info
+			open_for_directories = false,
+			keymaps = {
+				show_help = "<f1>",
+			},
+		},
+		-- 👇 if you use `open_for_directories=true`, this is recommended
+		init = function()
+			-- mark netrw as loaded so it's not loaded at all.
+			--
+			-- More details: https://github.com/mikavilpas/yazi.nvim/issues/802
+			vim.g.loaded_netrwPlugin = 1
+		end,
+	},
+	-- Screenkey display
+	{
+		"NStefan002/screenkey.nvim",
+		config = function()
+			require("screenkey").setup({
+				win_opts = {
+					row = vim.o.lines - vim.o.cmdheight - 1,
+					col = vim.o.columns - 1,
+					relative = "editor",
+					anchor = "SE",
+					width = 40,
+					height = 3,
+					border = "double",
+					title = "",
+					title_pos = "center",
+					style = "minimal",
+					focusable = false,
+					noautocmd = true,
+				},
+				compress_after = 3,
+				clear_after = 3,
+				disable = {
+					filetypes = {},
+					buftypes = {},
+				},
+				show_leader = true,
+				group_mappings = true,
+				display_infront = {},
+				display_behind = {},
+				filter = function(keys)
+					return keys
+				end,
+			})
+		end,
+		lazy = false,
+		version = "*", -- or branch = "main", to use the latest commit
+	},
 	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
@@ -996,5 +1076,5 @@ vim.cmd([[
   highlight NonText ctermbg=none
 ]])
 vim.cmd("syntax enable")
-
+vim.cmd("Screenkey toggle")
 print("Drink water!")
