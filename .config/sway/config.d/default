@@ -9,8 +9,9 @@ set $up k
 set $right l
 
 # set monitor variables:
-set $fm DisplayPort-1
-set $sm HDMI-A-0
+set $fm HDMI-A-1 
+set $sm DP-2
+
 
 # Set default terminal emulator
 set $term alacritty
@@ -89,12 +90,34 @@ set $powermenu ~/.config/sway/scripts/power_menu.sh
         $mod+Shift+$right move right
     }
 
-#
-# Workspaces:
-#
+##########################################
+# configuration for workspace behaviour: #
+##########################################
     # Workspace bindings are using bindcode instead of bindsym for better Azerty compatibility.
     # https://github.com/EndeavourOS-Community-Editions/sway/pull/81
     # Use wev to find keycodes for setting up other bindings this way.
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 ""
+set $ws2 "2"
+set $ws3 ""
+set $ws4 ""
+set $ws5 ""
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+set $ws10 ""
+set $ws11 ""
+set $ws12 ""
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
 
 # define workspaces
 workspace 1 output $fm
@@ -115,7 +138,8 @@ workspace 15 output $sm
 workspace 16 output $sm
 workspace 17 output $sm
 workspace 18 output $sm
-    bindcode {
+
+  bindcode {
 # switch to workspace
  $mod+10    workspace  $ws1
  $mod+11    workspace  $ws2
@@ -265,3 +289,11 @@ bindsym $mod+g exec godot
 # Screenshots
 #
 bindsym Print exec  flameshot gui
+
+# start terminal
+exec  $term-e "$HOME/startup.sh"
+
+# start syncing utility
+exec  syncthing
+# start blue light filter
+exec  redshift -c ~/.config/redshift/redshift.conf
