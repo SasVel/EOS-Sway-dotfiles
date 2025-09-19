@@ -80,6 +80,8 @@ vim.o.list = true
 vim.opt.listchars = { tab = "| ", trail = "·", nbsp = "␣" }
 
 -- Tab width
+vim.o.expandtab = true
+vim.o.smartindent = true
 vim.bo.tabstop = 2
 vim.bo.shiftwidth = 2
 
@@ -321,6 +323,13 @@ require("lazy").setup({
 		end,
 		lazy = false,
 		version = "*", -- or branch = "main", to use the latest commit
+	},
+	{
+		"romus204/referencer.nvim",
+		config = function()
+			require("referencer").setup()
+		end,
+		lazy = false,
 	},
 	{
 		"gruvw/strudel.nvim",
