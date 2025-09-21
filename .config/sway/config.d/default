@@ -25,6 +25,8 @@ set $menu nwg-drawer
 # Power Menu
 set $powermenu ~/.config/sway/scripts/power_menu.sh
 
+set $lockscreen gtklock
+
 ### Key bindings
 #
 # Basics:
@@ -48,7 +50,7 @@ set $powermenu ~/.config/sway/scripts/power_menu.sh
     bindsym $mod+Shift+d exec $menu
 
     # Lock screen
-    bindsym $mod+f1 exec gtklock
+    bindsym $mod+Escape exec $lockscreen
 
     # Activities
     bindsym $mod+p exec ~/.config/sway/scripts/window_switcher.sh
@@ -298,3 +300,6 @@ exec  $term-e "$HOME/startup.sh"
 exec  syncthing
 # start blue light filter
 exec  redshift -c ~/.config/redshift/redshift.conf
+
+# start lock screen on start (greetd was doing problems)
+exec $lockscreen
