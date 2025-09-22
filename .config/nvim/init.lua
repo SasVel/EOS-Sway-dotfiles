@@ -56,7 +56,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Switch signcolumn on/off
-vim.o.signcolumn = "no"
+vim.o.signcolumn = "yes"
 
 -- Decrease update time
 vim.o.updatetime = 250
