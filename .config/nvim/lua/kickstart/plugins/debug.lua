@@ -34,14 +34,14 @@ return {
 			desc = "Debug: Start/Continue",
 		},
 		{
-			"<F1>",
+			"<F11>",
 			function()
 				require("dap").step_into()
 			end,
 			desc = "Debug: Step Into",
 		},
 		{
-			"<F2>",
+			"<F10>",
 			function()
 				require("dap").step_over()
 			end,
@@ -88,11 +88,13 @@ return {
 			port = 6006,
 		}
 		dap.configurations.gdscript = {
-			type = "godot",
-			request = "launch",
-			name = "Launch scene",
-			project = "${workspaceFolder}",
-			launch_scene = true,
+			{
+				type = "godot",
+				request = "launch",
+				name = "Launch scene",
+				project = "${workspaceFolder}",
+				launch_scene = true,
+			},
 		}
 
 		require("mason-nvim-dap").setup({

@@ -339,6 +339,9 @@ require("lazy").setup({
 		end,
 		lazy = false,
 	},
+  {
+    "weilbith/nvim-lsp-smag"
+  },
 	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
@@ -1043,10 +1046,6 @@ require("lazy").setup({
 	-- place them in the correct locations.
 
 	-- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
-	--
-	--  Here are some example plugins that I've included in the Kickstart repository.
-	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
-	--
 	require("kickstart.plugins.debug"),
 	-- require 'kickstart.plugins.indent_line',
 	-- require 'kickstart.plugins.lint',

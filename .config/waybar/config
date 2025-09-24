@@ -68,6 +68,7 @@
 // Configuration - modules-right
 
     "modules-right": [
+        "sway/language",
         "custom/keyboard-layout",
         "idle_inhibitor",
         "cpu",
@@ -79,6 +80,9 @@
         "tray",
         "custom/power"
     ],
+    "sway/language": {
+    	"format": "{}",
+    },
 
     "custom/keyboard-layout": {
       	"exec": "i=$(swaymsg -t get_inputs); echo \"\"; echo \"$i\" | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
