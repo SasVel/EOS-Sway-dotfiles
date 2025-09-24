@@ -30,3 +30,7 @@ sudo pacman -S git stow
  ```
  ls -lah [directory]
  ```
+
+---
+## Credits & Resources
+ - [Arkboi's waybar config](https://github.com/arkboix/sway/tree/main)
