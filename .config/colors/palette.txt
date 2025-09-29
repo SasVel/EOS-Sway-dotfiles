@@ -1,0 +1,37 @@
+/* Coolors Exported Palette - https://coolors.co/2b3339-e69875-7fbbb3-dbbc7f-a7c080-83c092-d699b6 */
+
+- Tailwind
+
+{ 'gunmetal': { DEFAULT: '#2b3339', 100: '#090a0c', 200: '#121517', 300: '#1a1f23', 400: '#232a2f', 500: '#2b3339', 600: '#4f5e69', 700: '#738796', 800: '#a2afb9', 900: '#d0d7dc' }, 'atomic_tangerine': { DEFAULT: '#e69875', 100: '#3b1a0b', 200: '#753416', 300: '#b04e20', 400: '#db6d3a', 500: '#e69875', 600: '#ebad91', 700: '#f0c2ac', 800: '#f5d6c8', 900: '#faebe3' }, 'cambridge_blue': { DEFAULT: '#7fbbb3', 100: '#162927', 200: '#2c534e', 300: '#417c74', 400: '#57a69b', 500: '#7fbbb3', 600: '#99cac3', 700: '#b3d7d2', 800: '#cce4e1', 900: '#e6f2f0' }, 'ecru': { DEFAULT: '#dbbc7f', 100: '#36290f', 200: '#6c521f', 300: '#a27b2e', 400: '#cca04a', 500: '#dbbc7f', 600: '#e2ca99', 700: '#e9d7b3', 800: '#f1e4cc', 900: '#f8f2e6' }, 'olivine': { DEFAULT: '#a7c080', 100: '#232b15', 200: '#45562a', 300: '#688140', 400: '#8bac56', 500: '#a7c080', 600: '#bacd9a', 700: '#cbdab3', 800: '#dce6cc', 900: '#eef3e6' }, 'cambridge_blue': { DEFAULT: '#83c092', 100: '#162b1b', 200: '#2b5536', 300: '#418050', 400: '#57aa6c', 500: '#83c092', 600: '#9bcca7', 700: '#b4d9bd', 800: '#cde6d3', 900: '#e6f2e9' }, 'amaranth_pink': { DEFAULT: '#d699b6', 100: '#351524', 200: '#692a48', 300: '#9e3f6d', 400: '#c16491', 500: '#d699b6', 600: '#deadc5', 700: '#e7c2d4', 800: '#efd6e2', 900: '#f7ebf1' } }
+
+- CSV
+
+2b3339,e69875,7fbbb3,dbbc7f,a7c080,83c092,d699b6
+
+- With #
+
+#2b3339, #e69875, #7fbbb3, #dbbc7f, #a7c080, #83c092, #d699b6
+
+- Array
+
+["2b3339","e69875","7fbbb3","dbbc7f","a7c080","83c092","d699b6"]
+
+- Object
+
+{"Gunmetal":"2b3339","Atomic tangerine":"e69875","Cambridge blue":"7fbbb3","Ecru":"dbbc7f","Olivine":"a7c080","Cambridge blue 2":"83c092","Amaranth pink":"d699b6"}
+
+- Extended Array
+
+[{"name":"Gunmetal","hex":"2b3339","rgb":[43,51,57],"cmyk":[25,11,0,78],"hsb":[206,25,22],"hsl":[206,14,20],"lab":[21,-2,-5]},{"name":"Atomic tangerine","hex":"e69875","rgb":[230,152,117],"cmyk":[0,34,49,10],"hsb":[19,49,90],"hsl":[19,69,68],"lab":[70,25,30]},{"name":"Cambridge blue","hex":"7fbbb3","rgb":[127,187,179],"cmyk":[32,0,4,27],"hsb":[172,32,73],"hsl":[172,31,62],"lab":[72,-21,-2]},{"name":"Ecru","hex":"dbbc7f","rgb":[219,188,127],"cmyk":[0,14,42,14],"hsb":[40,42,86],"hsl":[40,56,68],"lab":[78,3,35]},{"name":"Olivine","hex":"a7c080","rgb":[167,192,128],"cmyk":[13,0,33,25],"hsb":[83,33,75],"hsl":[83,34,63],"lab":[74,-20,30]},{"name":"Cambridge blue","hex":"83c092","rgb":[131,192,146],"cmyk":[32,0,24,25],"hsb":[135,32,75],"hsl":[135,33,63],"lab":[73,-29,17]},{"name":"Amaranth pink","hex":"d699b6","rgb":[214,153,182],"cmyk":[0,29,15,16],"hsb":[331,29,84],"hsl":[331,43,72],"lab":[70,27,-6]}]
+
+- XML
+
+<palette>
+  <color name="Gunmetal" hex="2b3339" r="43" g="51" b="57" />
+  <color name="Atomic tangerine" hex="e69875" r="230" g="152" b="117" />
+  <color name="Cambridge blue" hex="7fbbb3" r="127" g="187" b="179" />
+  <color name="Ecru" hex="dbbc7f" r="219" g="188" b="127" />
+  <color name="Olivine" hex="a7c080" r="167" g="192" b="128" />
+  <color name="Cambridge blue" hex="83c092" r="131" g="192" b="146" />
+  <color name="Amaranth pink" hex="d699b6" r="214" g="153" b="182" />
+</palette>

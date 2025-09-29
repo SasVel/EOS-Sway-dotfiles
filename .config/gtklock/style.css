@@ -1,6 +1,6 @@
 * {
   border: none;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8)
+  text-shadow: 1px 1px 3px rgba(43, 51, 57, 0.8)
 }
 window {
   background-image: url("/home/sasi/Pictures/Wallpapers/eddy-gonz-lez-d-vila-futile-escape-40k-gallery.jpg");
@@ -10,34 +10,35 @@ window {
   background-color: black;
 }
 #clock-label {
-  font-family: JetBrainsMono;
+  font-family: "0xProto";
   font-size: 64.0px;
 }
 #unlock-button {
   background: none;
-  background-color: rgba(127, 63, 191, 0.4);
-  border: 2px solid rgba(127, 63, 191, 0.5);
+  background-color: rgba(43, 51, 57, 0.4);
+  border: 2px solid rgba(219, 188, 127, 0.5);
   padding: 4px;
 }
 #unlock-button:hover {
-  background-color: rgba(127, 63, 191, 0.9);
+  background-color: rgba(219, 188, 127, 0.9);
 }
 #input-field {
   border-radius: 10px;
-  background-color: rgba(127, 127, 255, 0.1);
-  border: 2px solid rgba(127, 63, 191, 0.5);
+  background-color: rgba(43, 51, 57, 0.5);
+  border: 2px solid #e69875;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 #powerbar-box button {
   background: none;
-  background-color: rgba(127, 63, 191, 0.4);
-  border: 2px solid rgba(127, 63, 191, 0.5);
+  background-color: rgba(43, 51, 57, 0.4);
+  border: 2px solid rgba(43, 51, 57, 0.5);
   border-radius: 10px;
   padding: 4px;
+  margin: 4px;
 }
 #powerbar-box button:hover {
-  background-color: rgba(127, 63, 191, 0.9);
+  background-color: rgba(127, 187, 179, 0.9);
 }
 #input-label {
   font-size: 0px;

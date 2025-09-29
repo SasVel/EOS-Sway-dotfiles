@@ -275,7 +275,7 @@ workspace 18 output $sm
 # App shortcuts
 #
     # Launch the file explorer
-bindsym $mod+n exec  alacritty -e yazi
+bindsym $mod+n exec $term -e yazi
 
 ## App shortcuts
 bindsym $mod+d exec  discord
