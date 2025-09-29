@@ -8,4 +8,6 @@ if status is-interactive
 	set -gx EDITOR nvim
 
 	source "$HOME/dotfiles/.bashrc_private"
+  export XKB_DEFAULT_LAYOUT=us,bg
+  export XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
 end

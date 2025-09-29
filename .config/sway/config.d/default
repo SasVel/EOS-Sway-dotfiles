@@ -28,69 +28,71 @@ set $powermenu ~/.config/sway/scripts/power_menu.sh
 set $lockscreen gtklock
 
 ### Key bindings
+bindsym {
 #
 # Basics:
 #
     # shutdown
-    bindsym $mod+Control+s exec --no-startup-id poweroff
+    $mod+Control+s exec --no-startup-id poweroff
 
     # Launch the terminal
-    bindsym $mod+Return exec $term
+    $mod+Return exec $term
 
     # Open the power menu
-    bindsym $mod+Shift+e exec $powermenu
+    $mod+Shift+e exec $powermenu
 
     # Kill focused window
-    bindsym $mod+q kill
+    $mod+q kill
 
     # Start your launcher
-    bindsym F1 exec $launcher
+    F1 exec $launcher
 
     # Menu
-    bindsym $mod+Shift+d exec $menu
+    $mod+Shift+d exec $menu
 
     # Lock screen
-    bindsym $mod+Escape exec $lockscreen
+    $mod+Escape exec $lockscreen
 
     # Activities
-    bindsym $mod+p exec ~/.config/sway/scripts/window_switcher.sh
+    $mod+p exec ~/.config/sway/scripts/window_switcher.sh
+
+
+    # Reload the configuration file
+    $mod+Shift+c reload
+
+    $mod+shift+r restart
+
+#
+# Moving around:
+#
+    # Change window focus
+    $mod+Left focus left
+    $mod+Down focus down
+    $mod+Up focus up
+    $mod+Right focus right
+    # Vim key support
+    $mod+$left focus left
+    $mod+$down focus down
+    $mod+$up focus up
+    $mod+$right focus right
+
+    # Move the focused window
+    $mod+Shift+Left move left
+    $mod+Shift+Down move down
+    $mod+Shift+Up move up
+    $mod+Shift+Right move right
+    # Vim key support
+    $mod+Shift+$left move left
+    $mod+Shift+$down move down
+    $mod+Shift+$up move up
+    $mod+Shift+$right move right
+}
 
     # Move windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Change "normal" to "inverse" to switch left and right
     floating_modifier $mod normal
 
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
-
-    bindsym $mod+shift+r restart
-
-#
-# Moving around:
-#
-    bindsym {
-        # Change window focus
-        $mod+Left focus left
-        $mod+Down focus down
-        $mod+Up focus up
-        $mod+Right focus right
-        # Vim key support
-        $mod+$left focus left
-        $mod+$down focus down
-        $mod+$up focus up
-        $mod+$right focus right
-
-        # Move the focused window
-        $mod+Shift+Left move left
-        $mod+Shift+Down move down
-        $mod+Shift+Up move up
-        $mod+Shift+Right move right
-        # Vim key support
-        $mod+Shift+$left move left
-        $mod+Shift+$down move down
-        $mod+Shift+$up move up
-        $mod+Shift+$right move right
-    }
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -165,25 +167,25 @@ workspace 18 output $sm
  $mod1+18    workspace  $ws18
 
 # move focused container to workspace
- $mod+Shift+10    move container to workspace  $ws1
- $mod+Shift+11    move container to workspace  $ws2
- $mod+Shift+12    move container to workspace  $ws3
- $mod+Shift+13    move container to workspace  $ws4
- $mod+Shift+14    move container to workspace  $ws5
- $mod+Shift+15    move container to workspace  $ws6
- $mod+Shift+16    move container to workspace  $ws7
- $mod+Shift+17    move container to workspace  $ws8
- $mod+Shift+18    move container to workspace  $ws9
+ $mod+Control+10    move container to workspace  $ws1
+ $mod+Control+11    move container to workspace  $ws2
+ $mod+Control+12    move container to workspace  $ws3
+ $mod+Control+13    move container to workspace  $ws4
+ $mod+Control+14    move container to workspace  $ws5
+ $mod+Control+15    move container to workspace  $ws6
+ $mod+Control+16    move container to workspace  $ws7
+ $mod+Control+17    move container to workspace  $ws8
+ $mod+Control+18    move container to workspace  $ws9
 
- $mod1+Shift+10   move container to workspace $ws10
- $mod1+Shift+11   move container to workspace $ws11
- $mod1+Shift+12   move container to workspace $ws12
- $mod1+Shift+13   move container to workspace $ws13
- $mod1+Shift+14   move container to workspace $ws14
- $mod1+Shift+15   move container to workspace $ws15
- $mod1+Shift+16   move container to workspace $ws16
- $mod1+Shift+17   move container to workspace $ws17
- $mod1+Shift+18   move container to workspace $ws18
+ $mod1+Control+10   move container to workspace $ws10
+ $mod1+Control+11   move container to workspace $ws11
+ $mod1+Control+12   move container to workspace $ws12
+ $mod1+Control+13   move container to workspace $ws13
+ $mod1+Control+14   move container to workspace $ws14
+ $mod1+Control+15   move container to workspace $ws15
+ $mod1+Control+16   move container to workspace $ws16
+ $mod1+Control+17   move container to workspace $ws17
+ $mod1+Control+18   move container to workspace $ws18
     }
 #
 # Layout stuff:
@@ -303,3 +305,7 @@ exec  redshift -c ~/.config/redshift/redshift.conf
 
 # start lock screen on start (greetd was doing problems)
 exec $lockscreen
+
+# start startup script 
+
+

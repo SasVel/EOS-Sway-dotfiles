@@ -5,8 +5,8 @@
     "spacing": 1,
     "margin": 0,
     "modules-left": ["sway/workspaces", "sway/mode"],
-        "modules-center": ["network"],                                                                           //battery   //disk     // uptime      //updates        // systray
-    "modules-right": ["sway/language", "pulseaudio", "backlight", "cpu", "memory", "temperature", "battery", "disk", "custom/uptime", "custom/updates", "clock", "tray"],
+    "modules-center": ["sway/language", "network"],
+    "modules-right": ["pulseaudio", "backlight", "cpu", "memory", "temperature", "battery", "disk", "custom/uptime", "custom/updates", "clock", "tray"],
 
 
     "sway/workspaces": {
@@ -98,7 +98,8 @@
     },
 
     "sway/language": {
-    	"format": "{}",
+    	"format": "{short}",
+      "format-bg": "bg"
     },
 
     "pulseaudio": {

@@ -10,12 +10,15 @@ include $HOME/.config/sway/config.d/*
 # Find available font names with - fc-list : family
 font pango: 0xProto Nerd Font 14
 
-input "type:keyboard" {
-  xkb_layout "us,ru"
-  xkb_options "grp:alt_shift_toggle"
-}
+#function layout_switch 
+#  if swaymsg -t get_inputs --raw | grep -q "US"
+#    swaymsg input "type:keyboard" xkb_layout bg
+#  else
+#    swaymsg input "type:keyboard" xkb_layout us
+#  end
+#end
 
-bindsym Alt+Shift_L exec "pkill -RTMIN+1 waybar"
+#bindsym Alt+Shift_L exec "pkill -RTMIN+1 waybar"
 
 #####################
 # workspace layout: #

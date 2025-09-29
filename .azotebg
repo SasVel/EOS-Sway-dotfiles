@@ -1,0 +1,4 @@
+#!/bin/fish
+pkill swaybg
+swaybg -i "/home/sasi/Pictures/Wallpapers/ValkWallpaper.jpg" -m fill &
+ 

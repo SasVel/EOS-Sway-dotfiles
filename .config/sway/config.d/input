@@ -18,13 +18,9 @@ exec_always {
     'swaymsg input type:keyboard xkb_variant "$(localectl status | grep "X11 Variant" | sed -e "s/^.*X11 Variant://")"'
 }
 
-# # Toggle between keyboard layouts. This example has the "us" and "gb"
-# # keyboard layouts, and uses Alt+Shift to toggle between them.
-# input "type:keyboard" {
-#     xkb_layout "us,gb"
-#     xkb_options "grp:alt_shift_toggle"
-# }
-# # Assign the same binding to "pkill -RTMIN+1 waybar" to send signal to
-# # the Waybar keyboard module (so the module shows the updated layout).
-# # This example uses Alt + left Shift.
-# bindsym Alt+Shift_L exec "pkill -RTMIN+1 waybar"
+input "type:keyboard" {
+    xkb_layout "us,bg(bekl)"
+    xkb_options "grp:alt_shift_toggle"
+}
+bindsym Alt+F1 exec swaymsg input "type:keyboard" xkb_layout bg
+bindsym Alt+F2 exec swaymsg input "type:keyboard" xkb_layout us

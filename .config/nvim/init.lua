@@ -167,18 +167,18 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
--- local port = os.getenv("GDScript_Port") or "6005"
--- local cmd = vim.lsp.rpc.connect("127.0.0.1", port)
--- local pipe = "/tmp/godot.pipe" -- I use /tmp/godot.pipe
+local port = os.getenv("GDScript_Port") or 6005
+local cmd = vim.lsp.rpc.connect("127.0.0.1", port)
+local pipe = "/tmp/godothost"
 
--- vim.lsp.start({
--- 	name = "Godot",
--- 	cmd = cmd,
--- 	root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
--- 	on_attach = function(client, bufnr)
--- 		vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
--- 	end,
--- })
+vim.lsp.start({
+	name = "Godot",
+	cmd = cmd,
+	root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
+	on_attach = function(client, bufnr)
+		vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
+	end,
+})
 
 -- [[ Configure and install plugins ]]
 --
@@ -339,9 +339,6 @@ require("lazy").setup({
 		end,
 		lazy = false,
 	},
-  {
-    "weilbith/nvim-lsp-smag"
-  },
 	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
