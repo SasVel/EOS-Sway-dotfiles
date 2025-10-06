@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/bin/bash
 pkill swaybg
-swaybg -i "/home/sasi/Pictures/Wallpapers/ValkWallpaper.jpg" -m fill &
+swaybg -i "$HOME/Pictures/Wallpapers/ValkWallpaper.jpg" -m fill &
  
