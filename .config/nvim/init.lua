@@ -1082,6 +1082,9 @@ require("lazy").setup({
 	},
 })
 
+-- local customUtils = require("utils")
+
+-- vim.keymap.set("n", "<leader>r", customUtils.run_code, { desc = "Run code in buffer." })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 local strudel = require("strudel")
