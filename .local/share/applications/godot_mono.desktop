@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=4.5
+Type=Application
+Name=Godot Mono
+Comment=The Best engine that ever lived.
+Exec=/home/sasi/Programs/GameEngines/Godot_v4.5.1-stable_mono_linux_x86_64/Godot_v4.5.1-stable_mono_linux.x86_64
+Icon=godot
+Terminal=false
+

@@ -8,11 +8,6 @@ set $down j
 set $up k
 set $right l
 
-# set monitor variables:
-set $fm HDMI-A-1 
-set $sm DP-2
-
-
 # Set default terminal emulator
 set $term alacritty
 
@@ -122,27 +117,6 @@ set $ws15 "15"
 set $ws16 "16"
 set $ws17 "17"
 set $ws18 "18"
-
-# define workspaces
-workspace 1 output $fm
-workspace 2 output $fm
-workspace 3 output $fm
-workspace 4 output $fm
-workspace 5 output $fm
-workspace 6 output $fm
-workspace 7 output $fm
-workspace 8 output $fm
-workspace 9 output $fm
-
-workspace 10 output $sm
-workspace 11 output $sm
-workspace 12 output $sm
-workspace 13 output $sm
-workspace 14 output $sm
-workspace 15 output $sm
-workspace 16 output $sm
-workspace 17 output $sm
-workspace 18 output $sm
 
   bindcode {
 # switch to workspace

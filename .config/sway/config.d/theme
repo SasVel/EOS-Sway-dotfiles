@@ -36,3 +36,5 @@ client.background       #F8F8F2
 bar {
     swaybar_command waybar
 }
+
+seat seat0 xcursor_theme Simple-and-Soft 26

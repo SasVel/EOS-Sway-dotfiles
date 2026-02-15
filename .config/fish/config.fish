@@ -11,3 +11,6 @@ if status is-interactive
   export XKB_DEFAULT_LAYOUT=us,bg
   export XKB_DEFAULT_OPTIONS=grp:alt_shift_toggle
 end
+
+# Created by `pipx` on 2026-01-10 18:56:20
+set PATH $PATH /home/sasi/.local/bin
